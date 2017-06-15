@@ -8,6 +8,7 @@ const User = require('./models/user.js')
 
 
 var users = require('./routes/users.js')
+var articles = require('./routes/articles.js')
 
 const mongoose = require('mongoose')
 mongoose.connect("mongodb://localhost:live-code")
@@ -33,6 +34,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 
 app.use('/api/users', users)
+app.use('/api/articles', articles)
 
 app.listen(3000)
 console.log(`Connect to port 3000`);
