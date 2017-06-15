@@ -11,12 +11,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Signup</a></li>
-            <li><a href="#">SignIn</a></li>
+            <li><button @click="showSignUp">Signup</button></li>
+            <li><button @click="showSignIn">Signin</button></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+
   </div>
 </template>
 
@@ -26,6 +27,14 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    showSignUp: function () {
+      this.$router.push('/signup')
+    },
+    showSignIn: function () {
+      this.$router.push('/signin')
     }
   }
 }

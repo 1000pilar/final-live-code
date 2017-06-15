@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'Login',
   data () {
@@ -36,8 +37,21 @@ export default {
   },
   methods: {
     getSignIn: function () {
-      self = this
-      axios
+      axios.post('http://localhost:3000/api/users/signin', {
+        username: this.username,
+        password: this.password
+      })
+      .then(function (response) {
+        if (response.data.hasOwnProperty('message')) {
+          alert('username or password wrong')
+        } else {
+          window.localStorage.setItem('token', response.data.token)
+          window.localStorage.setItem('username', response.data.username)
+          window.localStorage.setItem('role', response.data.role)
+          this.$router.push('/')
+          location.reload()
+        }
+      })
     }
   }
 }
