@@ -1,3 +1,4 @@
+var express = require('express')
 var jwt = require('jsonwebtoken')
 
 
@@ -8,7 +9,7 @@ module.exports = {
         req.decoded = decoded
         next()
       } else {
-        res.send(err)
+        res.send({message: `only admin could create,modify,delete article`})
       }
     });
   }

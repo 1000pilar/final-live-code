@@ -34,5 +34,14 @@ module.exports = {
         res.send(token)
       })
     }
+  },
+  getAll: (req, res)=>{
+    User.find((err, result)=>{
+      if(!err){
+        res.send(result)
+      } else {
+        res.send(err)
+      }
+    })
   }
 }

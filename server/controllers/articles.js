@@ -1,7 +1,7 @@
 var Article = require('../models/article.js')
 
 
-module.export = {
+module.exports = {
   create: (req, res)=>{
     var createActicle = new Article({
       title: req.body.title,

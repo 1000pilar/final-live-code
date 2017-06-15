@@ -6,7 +6,7 @@ var helper = require('../helpers/jwtVerify.js')
 
 router.post('/', helper.jwtVerify, articleController.create)
 router.get('/', articleController.findAll)
-router.get('/:id', articleController.findCategory)
+router.get('/:category', articleController.findCategory)
 router.put('/:id', helper.jwtVerify, articleController.update)
 router.delete('/:id', helper.jwtVerify, articleController.delete)
 
